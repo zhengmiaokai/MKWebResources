@@ -43,4 +43,4 @@ WebView注入HookAjaxHandler
 [_webView loadRequest:request];
 ```
 
-**源码参考说明**：HookAjax实现Cookie与HTTPbody的同步逻辑是基于Git开源项目-[KKJSBridge](https://github.com/karosLi/KKJSBridge)的相关代码改造。
+**源码参考**：通过hook ajax/fetch请求，实现Cookie与HTTPBody的同步逻辑，是基于Git开源项目-[KKJSBridge](https://github.com/karosLi/KKJSBridge)的相关代码改造。
