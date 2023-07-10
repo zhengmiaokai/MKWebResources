@@ -1,4 +1,4 @@
-# WKWebResourceLoader
+# WKWebResourcer
 通过 "WKURLSchemeHandler + AjaxHook"，实现WKWebview的资源拦截，解决了Ajax/Fetch请求的Cookie与HTTPBody信息同步问题，为H5秒开项目提供基础支持。
 
 ### 优缺点
