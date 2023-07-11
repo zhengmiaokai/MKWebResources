@@ -78,8 +78,6 @@ static NSDictionary *MKWebFastURLSchemeContentTypes() {
     NSMutableURLRequest *URLRequest = [urlSchemeTask.request mutableCopy];
     NSURL *URL = urlSchemeTask.request.URL;
     
-    NSLog(@"[webFast] startURLSchemeTask: %@", URL);
-    
     [self.availableTasks addObject:urlSchemeTask];
     
     // 异步并行防止频繁的IO操作阻塞主线程
@@ -90,7 +88,7 @@ static NSDictionary *MKWebFastURLSchemeContentTypes() {
             // WKURLSchemeHandler在MainQueue触发，请求响应也在MainQueue回调
             dispatch_async(dispatch_get_main_queue(), ^{
                 if ([self.availableTasks containsObject:urlSchemeTask]) {
-                    NSLog(@"[webFast] URLScheme_loadlocalResource");
+                    NSLog(@"[webFast] startURLSchemeTask_localResource: %@", URL);
                     
                     NSMutableDictionary *headerFields = [NSMutableDictionary dictionaryWithDictionary:@{@"Access-Control-Allow-Origin": @"*"}];
                     [headerFields wfSetObject:[MKWebFastURLSchemeContentTypes() wfStringForKey:URL.pathExtension] forKey:@"Content-Type"];
@@ -104,7 +102,7 @@ static NSDictionary *MKWebFastURLSchemeContentTypes() {
                 }
             });
         } else {
-            NSLog(@"[webFast] URLScheme_loadRemoteResource");
+            NSLog(@"[webFast] startURLSchemeTask_remoteResource: %@", URL);
             
             [MKCookieSynchronizer syncRequestCookie:URLRequest];
             [MKAjaxBodyAssembler syncRequestConfiguration:URLRequest];

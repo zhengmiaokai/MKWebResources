@@ -89,7 +89,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03852C8E2A56A5570026D82A /* WKWebResourcer */ = {
+		03852C8E2A56A5570026D82A /* MKWebResources */ = {
 			isa = PBXGroup;
 			children = (
 				03852C992A56A5570026D82A /* MKWebFastManager.h */,
@@ -101,8 +101,8 @@
 				03852C902A56A5570026D82A /* FormData */,
 				03852C9A2A56A5570026D82A /* Uitls */,
 			);
-			name = WKWebResourcer;
-			path = ../../WKWebResourcer;
+			name = MKWebResources;
+			path = ../../MKWebResources;
 			sourceTree = "<group>";
 		};
 		03852C902A56A5570026D82A /* FormData */ = {
@@ -184,7 +184,7 @@
 				03CB29C62A42EC5A002007BF /* SceneDelegate.m */,
 				03CB29C82A42EC5A002007BF /* ViewController.h */,
 				03CB29C92A42EC5A002007BF /* ViewController.m */,
-				03852C8E2A56A5570026D82A /* WKWebResourcer */,
+				03852C8E2A56A5570026D82A /* MKWebResources */,
 				03CB29CB2A42EC5A002007BF /* Main.storyboard */,
 				03CB29CE2A42EC5C002007BF /* Assets.xcassets */,
 				03CB29D02A42EC5C002007BF /* LaunchScreen.storyboard */,
