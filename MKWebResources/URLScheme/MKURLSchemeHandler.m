@@ -13,12 +13,13 @@
 #import "MKAjaxBodyAssembler.h"
 #import "MKURLSessionManager.h"
 
-static NSDictionary *MKWebFastURLSchemeContentTypes() {
+static NSDictionary *MKWebFastURLSchemeContentTypes(void) {
     NSDictionary *contentTypes = @{@"html": @"text/html",
                                    @"js": @"application/x-javascript",
                                    @"css": @"text/css",
                                    @"jpg": @"image/jpeg",
                                    @"png": @"image/png",
+                                   @"webp": @"image/webp",
                                    @"gif": @"image/gif",
                                    @"svg": @"image/svg+xml",
                                    @"json": @"application/json",
@@ -33,6 +34,11 @@ static NSDictionary *MKWebFastURLSchemeContentTypes() {
                                    @"otf": @"application/octet-stream",
                                    @"eot": @"application/vnd.ms-fontobject"};
     return contentTypes;
+}
+
+static NSArray *LXWebFastURLSchemeFileTypes(void) {
+    NSArray *fileTypes = @[@"js", @"css", @"jpg", @"png", @"webp", @"gif", @"svg", @"xml", @"zip", @"txt", @"pdf", @"doc", @"docx", @"woff", @"ttf", @"otf", @"eot"];
+    return fileTypes;
 }
 
 @interface MKURLSchemeHandler ()
