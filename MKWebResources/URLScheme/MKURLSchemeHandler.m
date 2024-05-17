@@ -36,7 +36,7 @@ static NSDictionary *MKWebFastURLSchemeContentTypes(void) {
     return contentTypes;
 }
 
-static NSArray *LXWebFastURLSchemeFileTypes(void) {
+static NSArray *MKWebFastURLSchemeFileTypes(void) {
     NSArray *fileTypes = @[@"js", @"css", @"jpg", @"png", @"webp", @"gif", @"svg", @"xml", @"zip", @"txt", @"pdf", @"doc", @"docx", @"woff", @"ttf", @"otf", @"eot"];
     return fileTypes;
 }
