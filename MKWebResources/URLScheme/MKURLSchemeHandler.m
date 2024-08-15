@@ -124,10 +124,14 @@ static NSArray *MKWebFastURLSchemeFileTypes(void) {
     NSURLSessionTask *task = [[MKURLSchemeHandler sharedSessionManager] dataTaskWithRequest:URLRequest didReceiveResponse:^(NSURLSessionDataTask *dataTask, NSURLResponse *response) {
         if ([self.availableTasks containsObject:urlSchemeTask]) {
             [urlSchemeTask didReceiveResponse:response];
+        } else {
+            [dataTask cancel];
         }
     } didReceiveData:^(NSURLSessionDataTask *dataTask, NSData *data) {
         if ([self.availableTasks containsObject:urlSchemeTask]) {
             [urlSchemeTask didReceiveData:data];
+        } else {
+            [dataTask cancel];
         }
     } didComplete:^(NSURLSessionTask *task, NSError *error) {
         if ([self.availableTasks containsObject:urlSchemeTask]) {
@@ -137,6 +141,8 @@ static NSArray *MKWebFastURLSchemeFileTypes(void) {
                 [urlSchemeTask didFinish];
             }
             [self.availableTasks removeObject:urlSchemeTask];
+        } else {
+            [task cancel];
         }
     } willPerformHTTPRedirection:^(NSHTTPURLResponse *response, NSURLRequest *request) {
         if ([self.availableTasks containsObject:urlSchemeTask]) {
